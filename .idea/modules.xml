@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/cprg306-assignment.iml" filepath="$PROJECT_DIR$/.idea/cprg306-assignment.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/cprg306-assignments.iml" filepath="$PROJECT_DIR$/.idea/cprg306-assignments.iml" />
     </modules>
   </component>
 </project>
