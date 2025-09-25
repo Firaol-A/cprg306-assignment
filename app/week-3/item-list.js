@@ -73,7 +73,7 @@ export default function ItemList(){
     };
 
     return(
-        <main className="">
+        <main>
             <Item
             name={item1.name}
             quantity={item1.quantity}
