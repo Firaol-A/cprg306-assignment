@@ -1,8 +1,8 @@
-import NewItem from "@/app/week-4/new-item";
+import NewItem from './new-item';
 export default function Page(){
     return (
         <main>
-            <h1 className="text-4xl font-bold text-center font-mono mb-4">Week 4</h1>
+            <h1 className="text-4xl font-bold text-center font-mono mb-4">Week 5</h1>
             <section>
                 <NewItem />
             </section>
