@@ -6,6 +6,7 @@ export default function NewItem(){
     const [name, setName] = useState("");
     const [quantity, setQuantity] = useState(1);
     const [category, setCategory] = useState("produce");
+
     const increment = () => {
         if (quantity >= 1 && quantity < 20) {
             setQuantity(quantity + 1);
