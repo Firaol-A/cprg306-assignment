@@ -4,16 +4,16 @@ import {useState} from "react"
 
 export default function ItemList({items}){
     const [sortBy, setSortBy] = useState("name");
-    const itemsCopy = [...items];
+    let itemsCopy = [...items];
 
     if (sortBy === "name"){
-        items.sort((a, b) => a.name.localeCompare(b.name));
+        itemsCopy.sort((a, b) => a.name.localeCompare(b.name));
     }
     if (sortBy === "category"){
-        items.sort((a, b) => a.category.localeCompare(b.category));
+        itemsCopy.sort((a, b) => a.category.localeCompare(b.category));
     }
     if (sortBy === "quantity"){
-        items.sort((a, b) => a.quantity - b.quantity);
+        itemsCopy.sort((a, b) => a.quantity - b.quantity);
     }
 
     function handleSortName(){

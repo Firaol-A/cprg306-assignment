@@ -11,7 +11,9 @@ export default function Page(){
     const handleAddItem = (item) => {
         setItems([...items, item]);
     }
+    const handleDeleteItem = (item, id) => {
 
+    }
     return(
         <main>
             <h1 className="text-4xl font-bold text-center font-mono">Shopping List</h1>
