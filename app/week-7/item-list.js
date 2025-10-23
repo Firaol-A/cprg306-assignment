@@ -1,24 +1,24 @@
 "use client"
 import Item from "./item";
-import itemsData from "./items.json";
 import {useState} from "react"
 
-export default function ItemList(){
+export default function ItemList({items}){
     const [sortBy, setSortBy] = useState("name");
-    let itemsCopy = [...itemsData];
+    const itemsCopy = [...items];
 
     if (sortBy === "name"){
-        itemsCopy.sort((a, b) => a.name.localeCompare(b.name));
+        items.sort((a, b) => a.name.localeCompare(b.name));
     }
     if (sortBy === "category"){
-        itemsCopy.sort((a, b) => a.category.localeCompare(b.category));
+        items.sort((a, b) => a.category.localeCompare(b.category));
     }
     if (sortBy === "quantity"){
-        itemsCopy.sort((a, b) => a.quantity - b.quantity);
+        items.sort((a, b) => a.quantity - b.quantity);
     }
 
     function handleSortName(){
         setSortBy("name");
+        console.log(itemsCopy);
     }
     function handleSortCategory(){
         setSortBy("category");
@@ -36,7 +36,7 @@ export default function ItemList(){
             </div>
             <ul>
                 {itemsCopy.map((item) => (
-                    <li key={itemsCopy.id}>
+                    <li key={item.id}>
                         <section className="mx-auto m-3 bg-zinc-50 text-center w-1/2 rounded-md hover:drop-shadow-md">
                             <h3 className="text-lg capitalize">{item.name}</h3>
                             <p>Buy {item.quantity} in {item.category}</p>
