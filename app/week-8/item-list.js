@@ -1,11 +1,10 @@
 "use client"
 import Item from "./item";
-import itemsData from "./items.json";
 import {useState} from "react"
 
-export default function ItemList(){
+export default function ItemList({items, onSelectItem}) {
     const [sortBy, setSortBy] = useState("name");
-    let itemsCopy = [...itemsData];
+    let itemsCopy = [...items];
 
     if (sortBy === "name"){
         itemsCopy.sort((a, b) => a.name.localeCompare(b.name));
@@ -16,10 +15,6 @@ export default function ItemList(){
     if (sortBy === "quantity"){
         itemsCopy.sort((a, b) => a.quantity - b.quantity);
     }
-    if (sortBy === "groupCategory"){
-        itemsCopy.sort((a, b) => a.category.localeCompare(b.category) || a.name.localeCompare(b.name));
-    }
-
 
     function handleSortName(){
         setSortBy("name");
@@ -31,26 +26,22 @@ export default function ItemList(){
         setSortBy("quantity");
     }
 
-    function handleGroupByCategory(){
-        setSortBy("groupCategory");
-    }
-
     return(
-        <main>
+        <main className="flex-1">
             <div className={"flex flex-row mx-auto w-fit h-fit text-center mt-10 gap-3"}>
                 <button onClick={handleSortName} className="border text-black border-gray-300 rounded p-2 hover:shadow-md focus:outline-2" value={"name"}>Sort By Name</button>
                 <button onClick={handleSortCategory} className="border text-black border-gray-300 rounded p-2  hover:shadow-md focus:outline-2" value={"category"}>Sort By Category</button>
-                <button onClick={handleSortQuantity}  className="border text-black border-gray-300 rounded p-2  hover:shadow-md focus:outline-2" value={"category"} disabled={true} hidden={true}>Sort By Quantity</button>
-                <button onClick={handleGroupByCategory} className="border text-black border-gray-300 rounded p-2  hover:shadow-md focus:outline-2" value={"category"}>Group By Category</button>
+                <button onClick={handleSortQuantity} className="border text-black border-gray-300 rounded p-2  hover:shadow-md focus:outline-2" value={"category"} disabled={true} hidden={true}>Sort By Quantity</button>
             </div>
             <ul>
                 {itemsCopy.map((item) => (
-                    <li key={item.id}>
-                        <section className={`mx-auto m-3 bg-zinc-50 text-center w-1/2 rounded-md hover:drop-shadow-md ${sortBy === 'groupCategory' && item.category === item.category? "group-[border:block]:" :"mx-auto"}`}>
-                            <h3 className="text-lg capitalize">{item.name}</h3>
-                            <p>Buy {item.quantity} in {item.category}</p>
-                        </section>
-                    </li>
+                    <Item
+                        key={item.id}
+                        name={item.name}
+                        quantity={item.quantity}
+                        category={item.category}
+                        onSelect={() => onSelectItem(item)}
+                    />
                 ))}
             </ul>
         </main>

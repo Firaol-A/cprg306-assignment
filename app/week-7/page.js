@@ -12,7 +12,6 @@ export default function Page(){
         setItems([...items, item]);
     }
     const handleDeleteItem = (item, id) => {
-
     }
     return(
         <main>
