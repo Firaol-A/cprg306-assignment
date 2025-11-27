@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export default function Page() {
-    const weeks = ["week-2", "week-3", "week-4", "week-5", "week-6", "week-7", "week-8", "week-9"];
+    const weeks = ["week-2", "week-3", "week-4", "week-5", "week-6", "week-7", "week-8", "week-9", "week-10"];
     return (
             <main className="">
                 <h1 className="text-center text-4xl">CPRG 306: Web Development 2 - Assignments</h1>
