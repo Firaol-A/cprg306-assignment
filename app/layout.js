@@ -1,4 +1,5 @@
 import "./globals.css";
+import {AuthContextProvider} from "@/app/week-9/_utils/auth-context";
 
 export const metadata = {
   title: "Web 2 Assignments",
@@ -7,9 +8,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
       <html lang="en" className="font-mono bg-white">
-      <body>
-      {children}
-      </body>
+        <body>
+            <AuthContextProvider>
+                {children}
+            </AuthContextProvider>
+        </body>
       </html>
   );
 }
