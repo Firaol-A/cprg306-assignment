@@ -40,7 +40,7 @@ export default function Page(){
                 setItems(fetchedItems);
             }
         };
-        // loadItems();
+        loadItems();
     }, [user]);
     return(
         <main>
